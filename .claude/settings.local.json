@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npx shadcn@latest add:*)",
+      "Bash(printf \"Y\\n\\n\\n\\n\\nneutral\\n\\nY\\n\")",
+      "Bash(npx shadcn@latest init:*)",
+      "Bash(printf:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
