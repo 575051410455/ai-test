@@ -7,11 +7,15 @@ import { authMiddleware, requireRole, type AuthUser } from "../middleware/auth";
 import { eq } from "drizzle-orm";
 import { hashPassword } from "../lib/auth";
 
-const app = new Hono();
+type Variables = {
+  user: AuthUser;
+};
+
+const app = new Hono<{ Variables: Variables }>();
 
 // Get current user
 app.get("/me", authMiddleware, async (c) => {
-  const authUser = c.get("user") as AuthUser;
+  const authUser = c.get("user");
 
   const user = await db.query.users.findFirst({
     where: eq(users.id, authUser.userId),
@@ -149,7 +153,7 @@ app.patch("/:id", authMiddleware, requireRole("admin"), zValidator("json", updat
 // Admin only - Delete user
 app.delete("/:id", authMiddleware, requireRole("admin"), async (c) => {
   const userId = c.req.param("id");
-  const authUser = c.get("user") as AuthUser;
+  const authUser = c.get("user");
 
   // Prevent self-deletion
   if (userId === authUser.userId) {

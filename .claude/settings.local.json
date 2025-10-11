@@ -5,7 +5,10 @@
       "Bash(npx shadcn@latest add:*)",
       "Bash(printf \"Y\\n\\n\\n\\n\\nneutral\\n\\nY\\n\")",
       "Bash(npx shadcn@latest init:*)",
-      "Bash(printf:*)"
+      "Bash(printf:*)",
+      "Bash(bun run dev)",
+      "Bash(bun add:*)",
+      "Bash(bunx tsc:*)"
     ],
     "deny": [],
     "ask": []

@@ -11,7 +11,7 @@ app.use("*", logger());
 app.use(
   "*",
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5174"],
     credentials: true,
   })
 );
@@ -33,6 +33,8 @@ app.notFound((c) => {
 const port = process.env.PORT || 3000;
 
 console.log(`🚀 Server running on http://localhost:${port}`);
+
+export type AppType = typeof app;
 
 export default {
   port,
